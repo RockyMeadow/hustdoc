@@ -1,44 +1,35 @@
+	<?php $count=0; ?>
 <div class="documents index">
 	<h2><?php echo __('Documents'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
+			<th><?php echo 'No.'; ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('summary'); ?></th>
-			<th><?php echo $this->Paginator->sort('pages'); ?></th>
-			<th><?php echo $this->Paginator->sort('likes'); ?></th>
-			<th><?php echo $this->Paginator->sort('body'); ?></th>
-			<th><?php echo $this->Paginator->sort('size'); ?></th>
 			<th><?php echo $this->Paginator->sort('author'); ?></th>
 			<th><?php echo $this->Paginator->sort('views'); ?></th>
 			<th><?php echo $this->Paginator->sort('downloads'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th><?php echo $this->Paginator->sort('visible'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
 	<tbody>
 	<?php foreach ($documents as $document): ?>
+		<?php $count++; ?>
 	<tr>
-		<td><?php echo h($document['Document']['id']); ?>&nbsp;</td>
+		<td><?php echo $count; ?></td>
 		<td><?php echo h($document['Document']['name']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($document['User']['username'], array('controller' => 'users', 'action' => 'view', $document['User']['username'])); ?>
 		</td>
-		<td><?php echo h($document['Document']['summary']); ?>&nbsp;</td>
-		<td><?php echo h($document['Document']['pages']); ?>&nbsp;</td>
-		<td><?php echo h($document['Document']['likes']); ?>&nbsp;</td>
-		<td><?php echo h($document['Document']['body']); ?>&nbsp;</td>
-		<td><?php echo h($document['Document']['size']); ?>&nbsp;</td>
 		<td><?php echo h($document['Document']['author']); ?>&nbsp;</td>
 		<td><?php echo h($document['Document']['views']); ?>&nbsp;</td>
 		<td><?php echo h($document['Document']['downloads']); ?>&nbsp;</td>
 		<td><?php echo h($document['Document']['created']); ?>&nbsp;</td>
 		<td><?php echo h($document['Document']['modified']); ?>&nbsp;</td>
-		<td><?php echo h($document['Document']['visible']); ?>&nbsp;</td>
+
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $document['Document']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $document['Document']['id'])); ?>
@@ -62,17 +53,16 @@
 	?>
 	</div>
 </div>
+
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Document'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Topics'), array('controller' => 'topics', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Topic'), array('controller' => 'topics', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Comments'), array('controller' => 'comments', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Reports'), array('controller' => 'reports', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Report'), array('controller' => 'reports', 'action' => 'add')); ?> </li>
+		
+		 <li><?php echo $this->Html->link("Back to the dashboard",'http://localhost/hustdoc.vn/admin'); ?></li>
+        
+        <li><?php echo $this->Html->link("Back to the main site", 'http://localhost/hustdoc.vn/topics' ); ?> </li>
+        <br/><br/><br/>
+      
 	</ul>
 </div>

@@ -1,3 +1,7 @@
+<?php if(($document['Document']['visible']=='public') || 
+		($document['Document']['visible']=='member only' && AuthComponent::user())  || 
+		($document['Document']['visible']=='only me' && (AuthComponent::user('role')=='admin' || 
+		AuthComponent::user('id')==$document['Document']['user_id']))) { ?>
 <div class="documents view">
 <h2><?php echo __('Document'); ?></h2>
 	<dl>
@@ -21,11 +25,6 @@
 			<?php echo h($document['Document']['summary']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Pages'); ?></dt>
-		<dd>
-			<?php echo h($document['Document']['pages']); ?>
-			&nbsp;
-		</dd>
 		<dt><?php echo __('Likes'); ?></dt>
 		<dd>
 			<?php echo h($document['Document']['likes']); ?>
@@ -33,7 +32,7 @@
 		</dd>
 		<dt><?php echo __('Body'); ?></dt>
 		<dd>
-			<?php echo h($document['Document']['body']); ?>
+			<?php echo ($document['Document']['body']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Size'); ?></dt>
@@ -78,16 +77,12 @@
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Document'), array('action' => 'edit', $document['Document']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Document'), array('action' => 'delete', $document['Document']['id']), array(), __('Are you sure you want to delete # %s?', $document['Document']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Documents'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Document'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Topics'), array('controller' => 'topics', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Topic'), array('controller' => 'topics', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Comments'), array('controller' => 'comments', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Reports'), array('controller' => 'reports', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Report'), array('controller' => 'reports', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Documents'), array('action' => 'index')); ?></li>
+		 <li><?php echo $this->Html->link("Back to the dashboard",'http://localhost/hustdoc.vn/admin'); ?></li>
+        
+        <li><?php echo $this->Html->link("Back to the main site", 'http://localhost/hustdoc.vn/topics' ); ?> </li>
+        <br/><br/><br/>
+
 	</ul>
 </div>
 <div class="related">
@@ -164,3 +159,7 @@
 		</ul>
 	</div>
 </div>
+<?php }else{  ?>
+<h1>You do not have permission to this information</h1>
+<li><?php  echo $this->Html->link( "Back to the dashboard",'http://localhost/hustdoc.vn/admin');  ?></li>
+<?php } ?>

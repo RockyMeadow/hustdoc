@@ -35,14 +35,58 @@ class AppController extends Controller {
 
 public $components = array(
     'DebugKit.Toolbar','Session','Auth' => array(
-        'loginRedirect' => array('controller' => 'topics', 'action' => 'index'),
-        'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
-        'authError' => 'You must be logged in to view this page.',
-        'loginError' => 'Invalid Username or Password entered, please try again.'
- 
-    ));
-
+        	'loginAction' => array('controller'=>'users','action'=>'login', 'admin'=>false),
+            'loginRedirect' => array(  
+                'controller' => 'users',
+                'action' => 'dashboard',
+            	'admin' => true
+            ),
+            'logoutRedirect' => array(  
+                'controller' => 'users',
+                'action' => 'login',
+            	'admin'=> false  // add this so that admin actions get ignored
+            ),
+        	'authError' => 'Access Denied',
+        	'authenticate' => array(
+        		'Form' => array(
+        				'passwordHasher' => 'Blowfish'
+        		)
+        	),
+        	'authorize' => array('Controller')
+        )
+    ); 
+	
 	public function beforeFilter() {
-   		$this->Auth->allow('login');
+		// Auth will block all entries with admin prefix unless the user is authenticated
+		if(isset($this->request->prefix) && ($this->request->prefix == 'admin')){
+			if($this->Auth->loggedIn()){
+				$this->Auth->allow();
+				$this->layout = 'admin';
+			}else{
+				$this->Auth->deny();
+				$this->layout = 'front';
+			}
+		}else{
+			$this->Auth->allow();
+			$this->layout = 'front';
+		}
 	}
+	
+	public function isAuthorized($user = null) {
+		// Everyone is authorized to see that front pages. However, some admin pages require you to be an admin to have access
+		if(isset($this->request->prefix) && ($this->request->prefix == 'admin')){
+			if($this->Auth->loggedIn()){
+				if($this->Auth->user('role') == 'admin'){
+					return true;
+				}else{
+					return false;
+				}
+			}else{
+				return false;
+			}
+		}
+		
+		return true;
+    }
+
 }

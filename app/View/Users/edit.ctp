@@ -1,3 +1,4 @@
+<?php if (AuthComponent::user('id')==$this->data['User']['id']) : ?>
 <div class="users form">
 <?php echo $this->Form->create('User'); ?>
 	<fieldset>
@@ -10,7 +11,7 @@
 		echo $this->Form->input('sex', array('options' => array( 'male' => 'Male', 'female' => 'Female') ));
 		echo $this->Form->input('date_of_birth');
 		echo $this->Form->input('city');
-		echo $this->Form->input('role', array('options' => array( 'admin' => 'Admin', 'user' => 'User') ));
+		echo $this->Form->input('role', array('default' => 'User','type'=>'hidden' ));
 		echo $this->Form->input('password_update', array( 'label' => 'New Password (leave empty if you do not want to change)', 'maxLength' => 255, 'type'=>'password','required' => 0));
         echo $this->Form->input('password_confirm_update', array('label' => 'Confirm New Password *', 'maxLength' => 255, 'title' => 'Confirm New password', 'type'=>'password','required' => 0));
 	?>
@@ -21,15 +22,15 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Comments'), array('controller' => 'comments', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Documents'), array('controller' => 'documents', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Document'), array('controller' => 'documents', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Reports'), array('controller' => 'reports', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Report'), array('controller' => 'reports', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Topics'), array('controller' => 'topics', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Topic'), array('controller' => 'topics', 'action' => 'add')); ?> </li>
+		 <li><?php echo $this->Html->link("Back to the dashboard",'http://localhost/hustdoc.vn/admin'); ?></li>
+        
+        <li><?php echo $this->Html->link("Back to the main site", 'http://localhost/hustdoc.vn/topics' ); ?> </li>
+        <br/><br/><br/>
+        <li><?php  echo $this->Html->link( "Logout",   array('controller'=>'users','action'=>'admin_logout') );  ?></li>
 	</ul>
 </div>
+<?php endif ?>
+<?php if (AuthComponent::user('id')!=$this->data['User']['id']) : ?>
+<h1>You do not have permission to this information</h1>
+<li><?php  echo $this->Html->link( "Back to the dashboard",'http://localhost/hustdoc.vn/admin');  ?></li>
+<?php endif ?>

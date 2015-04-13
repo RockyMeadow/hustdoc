@@ -15,6 +15,8 @@ class Document extends AppModel {
  *
  * @var array
  */
+
+	public $actsAs = array('CakeFileStorage.FileStorage');
 	public $displayField = 'name';
 
 	public $validate = array(
@@ -48,16 +50,7 @@ class Document extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'pages' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+		
 		'likes' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
@@ -132,6 +125,10 @@ class Document extends AppModel {
 				'required' => true,
 			),
 		),
+		'file' => array(
+				'rule' => 'checkFileUpload',
+				'message' => 'There was a problem uploading your file.'
+			),
 	);
 	
 	public function beforeSave($options = array()){
@@ -143,6 +140,10 @@ class Document extends AppModel {
 		}
 		return true;
 	}
+
+	public function isOwnedBy($document, $user) {
+    return $this->field('id', array('id' => $document, 'user_id' => $user)) !== false;
+}
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**

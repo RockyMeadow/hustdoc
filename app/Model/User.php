@@ -1,5 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
+App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 /**
  * User Model
  *
@@ -15,6 +16,7 @@ class User extends AppModel {
  *
  * @var array
  */
+    public $avatarUploadDir = 'img/avatars';
 	public $validate = array(
 		'username' => array(
             'nonEmpty' => array(
@@ -214,17 +216,27 @@ class User extends AppModel {
      * @param array $options
      * @return boolean
      */
-     public function beforeSave($options = array()) {
-        // hash our password
-        if (isset($this->data[$this->alias]['password'])) {
-            $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
-        }
-         
-        // if we get a new password, hash it
-        if (isset($this->data[$this->alias]['password_update']) & !empty($this->data[$this->alias]['password_update'])) {
-            $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password_update']);
-        }
      
+     public function beforeSave($options = array()) {
+
+        // hash the user's password befor we save it
+        if (isset($this->data[$this->alias]['password'])) {
+            $passwordHasher = new BlowfishPasswordHasher();
+            $this->data[$this->alias]['password'] = $passwordHasher->hash(
+                    $this->data[$this->alias]['password']
+            );
+        }
+        
+                
+        // if we get an updated password, hash it
+        if (isset($this->data[$this->alias]['password_update'])) {
+            $passwordHasher = new BlowfishPasswordHasher();
+            $this->data[$this->alias]['password'] = $passwordHasher->hash(
+                    $this->data[$this->alias]['password_update']
+            );
+            
+        }
+        
         // fallback to our parent
         return parent::beforeSave($options);
     }
