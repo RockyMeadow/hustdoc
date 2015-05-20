@@ -1,0 +1,955 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"chrom",
+				"chrome64"
+			],
+			[
+				"user",
+				"user_id"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"file",
+				"file1"
+			],
+			[
+				"col",
+				"colgroup	Tag"
+			],
+			[
+				"t_",
+				"t_list"
+			],
+			[
+				"ele",
+				"element"
+			],
+			[
+				"re",
+				"recordLog"
+			],
+			[
+				"sear",
+				"search_n_update"
+			],
+			[
+				"c",
+				"class"
+			],
+			[
+				"d",
+				"d"
+			],
+			[
+				"prin",
+				"print_data"
+			],
+			[
+				"fun",
+				"function_x"
+			],
+			[
+				"de",
+				"department"
+			],
+			[
+				"in",
+				"inc	#include \"…\""
+			],
+			[
+				"MAX",
+				"MAX_DEP"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"t",
+				"type	Attr"
+			],
+			[
+				"co",
+				"colNo"
+			],
+			[
+				"Eleva",
+				"Elevator"
+			],
+			[
+				"Elevat",
+				"ElevatorBank"
+			],
+			[
+				"tar",
+				"targetFloor"
+			],
+			[
+				"start",
+				"startFloor"
+			],
+			[
+				"coms",
+				"compileStatements"
+			],
+			[
+				"KW_",
+				"KW_CHAR"
+			],
+			[
+				"TK",
+				"TK_IDENT"
+			],
+			[
+				"compilePara",
+				"compileParams2"
+			],
+			[
+				"SB",
+				"SB_SEMICOLON"
+			],
+			[
+				"compileBlo",
+				"compileBlock"
+			],
+			[
+				"SB_",
+				"SB_COLON"
+			],
+			[
+				"compilePro",
+				"compileProcDecl"
+			],
+			[
+				"compileType",
+				"compileTypeDecls"
+			],
+			[
+				"compileCon",
+				"compileConstDecls"
+			],
+			[
+				"compileCons",
+				"compileConstDecl"
+			],
+			[
+				"token",
+				"tokenType"
+			],
+			[
+				"compileVar",
+				"compileVarDecls"
+			],
+			[
+				"compileTy",
+				"compileType"
+			],
+			[
+				"Sb_",
+				"SB_SEMICOLON"
+			],
+			[
+				"com",
+				"compileTypeDecls"
+			],
+			[
+				"CHAR_",
+				"CHAR_SINGLEQUOTE"
+			],
+			[
+				"SB_L",
+				"SB_LPAR"
+			],
+			[
+				"CHAR",
+				"CHAR_SINGLEQUOTE"
+			],
+			[
+				"ski",
+				"skipComment"
+			],
+			[
+				"CHAR_EQ",
+				"CHAR_EQ"
+			],
+			[
+				"EOF",
+				"EOF"
+			],
+			[
+				"read",
+				"readChar"
+			],
+			[
+				"TK_N",
+				"TK_NUMBER"
+			],
+			[
+				"char",
+				"charCodes"
+			],
+			[
+				"current",
+				"currentChar"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"bord",
+				"border"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"font-s",
+				"font-style"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"st",
+				"style	Tag"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/View/Documents/view.ctp",
+			"settings":
+			{
+				"buffer_size": 5956,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/View/Documents/add.ctp",
+			"settings":
+			{
+				"buffer_size": 1806,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Model/Document.php",
+			"settings":
+			{
+				"buffer_size": 5732,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Plugin/CakeFileStorage/README.md",
+			"settings":
+			{
+				"buffer_size": 3265,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/wamp/bin/apache/apache2.4.9/conf/httpd.conf",
+			"settings":
+			{
+				"buffer_size": 20560,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 127.0,
+		"last_filter": "view in",
+		"selected_items":
+		[
+			[
+				"view in",
+				"View In Browser"
+			],
+			[
+				"brow",
+				"View In Browser"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"brp",
+				"Preferences: Browse Packages"
+			],
+			[
+				"re",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reind",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"in",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wro",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				"iin",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"ind",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"w",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wr",
+				"Word Wrap: Toggle"
+			],
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"wra",
+				"Word Wrap: Toggle"
+			]
+		],
+		"width": 386.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/Model",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/View",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/View/Documents"
+	],
+	"file_history":
+	[
+		"/F/ICT/Sem8/Web Programming/phpword/test.php",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/View/Topics/index.ctp",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/Controller/DocumentsController.php",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/View/Themed/default/webroot/css/default.css",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/Controller/AppController.php",
+		"/F/ICT/Sem8/Web Programming/cakephp-3.0.1/README.md",
+		"/F/ICT/Sem8/Web Programming/cakephp-3.0.1/composer.json",
+		"/F/ICT/Sem8/Web Programming/cakephp-3.0.1/LICENSE.txt",
+		"/F/ICT/Sem8/Web Programming/bootstrap-3.3.4-dist/index.html",
+		"/C/Users/Rocky/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Rocky/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Rocky/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Rocky/AppData/Roaming/Sublime Text 3/Packages/User/View In Browser.sublime-settings",
+		"/C/Users/Rocky/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Rocky/AppData/Roaming/Sublime Text 3/Packages/View In Browser/View In Browser.sublime-settings",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.042/README.md",
+		"/C/wamp/bin/apache/apache2.4.9/conf/httpd.conf",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/Plugin/CakeFileStorage/README.md",
+		"/F/Downloads/EX.txt",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/Controller/UsersController.php",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/composer.json",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/Config/bootstrap.php",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/View/Users/admin_dashboard.ctp",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/View/Documents/view.ctp",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/View/Documents/edit.ctp",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/Model/Document.php",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/View/Documents/add.ctp",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/View/Documents/index.ctp",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/View/Users/edit.ctp",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/View/Users/admin_profile.ctp",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/View/Topics/view.ctp",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIb0.355/Password.txt",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIb0.072/Password.txt",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIb0.881/Password.txt",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIb0.074/Password.txt",
+		"/F/tor/The.Newsroom.S01.Season.1.720p.5.1Ch.BluRay.ReEnc-DeeJayAhmed/My Facebook Page.txt",
+		"/F/Dropbox/RockyMeadow.txt",
+		"/C/Program Files/WinRAR/Order.htm",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/hd5ub5ah.tj1.txt",
+		"/C/Users/Rocky/Desktop/GitHubLog.txt",
+		"/F/Downloads/hustdoc-1.sql",
+		"/F/tor/Prezi Desktop 4.5.1 + Crack-AmULet [superrubens]/ReadMe.txt",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/Plugin/CakeFileStorage/Lib/StorageType/FilesystemStorageType.php",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/upload.php",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/upload.html",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/database/hustdoc.sql",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/View/Documents/upload.ctp",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.882/install.txt",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.240/index.php",
+		"/F/ICT/Sem8/Web Programming/hustdoc.vn/app/Config/core.php",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/E/network_setup.txt",
+		"/C/Users/Rocky/Desktop/qct_dtnt_pptt.sql",
+		"/F/ICT/Sem8/bootstrap-3.3.2-dist/w3_practice.html",
+		"/F/ICT/Sem8/bootstrap-3.3.2-dist/index2.html",
+		"/F/ICT/Sem8/bootstrap-3.3.2-dist/index.html",
+		"/F/ICT/Sem8/bootstrap-3.3.2-dist/hiweek1.html",
+		"/C/WINDOWS/system32/http",
+		"/C/wamp/www/WP_HW04/test.sql",
+		"/C/wamp/www/index.php",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.371/FileList.php",
+		"/F/ICT/Sem8/Network Programming/week3/main.c",
+		"/F/Dropbox/ITSON/Human Interface/Bai chua/Baichua_cua_co.txt",
+		"/F/Games/Steam/steamapps/common/dota 2 beta/dota/resource/dota_brazilian.txt",
+		"/F/Games/Steam/steamapps/common/dota 2 beta/dota/resource/dota_english.txt",
+		"/F/Dropbox/ITSON/Human Interface/Bai chua/note for HI_23.txt",
+		"/C/wamp/www/WP_HW03_unfinished.php",
+		"/F/Unity/Editor/Data/Documentation/html/en/Manual/class-ParticleSystem.html",
+		"/C/wamp/www/WP_HW03.php",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.238/WP_HW03.php",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.051/FileList.php",
+		"/C/wamp/www/sample.php",
+		"/C/Users/Rocky/Downloads/WIS_hw_wk03.php",
+		"/C/Users/Rocky/Documents/StarCraft II/UserLogs/Roach Evolution/StoryModeDebug.txt",
+		"/C/wamp/www/WP_HW03/index.php",
+		"/C/wamp/www/WP_HW03/sample.php",
+		"/C/wamp/www/example.php",
+		"/C/wamp/www/testmysql.php",
+		"/C/wamp/www/index.html",
+		"/F/ICT/GR/Book and lectures/03_Parallel Computing - University of Wisconsin-Madison.txt",
+		"/C/wamp/www/WP/week2/index.php",
+		"/C/wamp/www/WP_HW03/upload/sample.txt",
+		"/E/setup/VMWare 10.0.0-SinhVienIT.Net/SerialKey-SinhVienIT.Net.txt",
+		"/G/Huongdan.txt",
+		"/F/ICT/Sem8/Network Programming/week3/main,c",
+		"/C/Users/Rocky/Desktop/VL2014_HDR.sql",
+		"/F/ICT/Sem8/Human Interface/registration/index.html",
+		"/F/ICT/Sem8/Human Interface/registration/css/default.css",
+		"/C/Users/Rocky/Desktop/[HI]BT02/[HI]BT02.html",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$EXa0.025/index.html",
+		"/C/Users/Rocky/Desktop/[HI]BT02/css/normalize.css",
+		"/F/ICT/Sem8/Network Programming/log.txt",
+		"/C/Users/Rocky/AppData/Local/Temp/Cisco Systems/Cisco Connect/file",
+		"/C/Users/Rocky/Downloads/Data.sql",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.766/ex01.c",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.017/ex01.c",
+		"/F/ICT/Sem8/Network Programming/students.txt",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.766/students.txt",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.458/hw.c",
+		"/F/ICT/Sem8/Network Programming/Lect1.c",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.072/HW01.c",
+		"/F/ICT/Sem8/Network Programming/liblist.h",
+		"/F/ICT/Sem8/Network Programming/sort-liblist2.h",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.178/hw.c",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.795/students.txt",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.457/students.txt",
+		"/F/ICT/Sem8/Network Programming/grade.c",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.536/log.txt",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.122/ex01.c",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.952/log.txt",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.747/hw.c",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.112/main.c",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.789/ex01.c",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.272/students.txt",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.853/hw.c",
+		"/C/Users/Rocky/AppData/Local/Temp/Rar$DIa0.154/students.txt",
+		"/F/ICT/Sem8/Network Programming/example.c",
+		"/F/Dropbox/Chia se/2.1-2.2/C programming Basic/dung/week8/grade.c",
+		"/F/Dropbox/Chia se/2.1-2.2/C programming Basic/dung/week8/sort-liblist2.h",
+		"/F/Dropbox/Chia se/2.1-2.2/C programming Basic/khanhpq/link list test ver2.c",
+		"/F/Dropbox/Chia se/2.1-2.2/C programming Basic/khanhpq/linked list.c",
+		"/C/Users/Rocky/AppData/Roaming/IDM/http",
+		"/C/Users/Rocky/Desktop/HaftLife 1.1/cstrike/realbot/rb_names.txt",
+		"/E/setup/IDM/Key.txt",
+		"/F/ICT/Sem8/WDA/week1.rb",
+		"/F/ICT/Sem8/Web Programming/Lecture 2/example.php",
+		"/C/Users/Rocky/Desktop/doichieu.txt",
+		"/C/Users/Rocky/AppData/Roaming/Skype/My Skype Received Files/fix_cc6.txt"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"<current file>",
+			"F:\\ICT\\Sem8\\Web Programming\\hustdoc.vn\\",
+			"F:\\ICT\\Sem8\\Web Programming\\hustdoc.vn\\app\\Plugin\\CakeFileStorage",
+			"",
+			"F:\\ICT\\Sem7-Block2\\Compiler Construction (Lab + Theory)\\Lab\\semantics4",
+			"<open folders>",
+			"F:\\Dropbox\\ITSON\\SP\\Elevator 2\\Elevator_final\\Elevator\\src",
+			"ex3.s",
+			"club.html",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"virtual",
+			"images",
+			"logout",
+			"localhost/hustdoc.vn/",
+			"localhost/hustdoc.vn/admin",
+			"localhost/hustdoc.vn",
+			"http://localhost/hustdoc.vn",
+			"http://localhost/hustdoc.vn/",
+			"delete",
+			"pages",
+			"nguyen",
+			"HEAD",
+			"file_get_contents",
+			"constraints",
+			"6,",
+			"is_writable",
+			"isValidStorageFolder",
+			"Attempting to store file in an invalid path",
+			"Auth",
+			"save",
+			"CakePlugin::loadAll();",
+			"save",
+			"Directory",
+			"Direc",
+			"salt",
+			"Zeus",
+			"zeus",
+			"font",
+			"projectContents",
+			"txtProjet",
+			"your projects",
+			"FileList",
+			"order",
+			"display",
+			"session_start",
+			"FileList",
+			"\"",
+			"register",
+			"textarea",
+			";\n",
+			"update_to_file",
+			"save_to_file",
+			"update_to_file",
+			"Listnode",
+			"updateFile",
+			"free_all",
+			"fLog",
+			"time",
+			"flog",
+			"getTime",
+			"fLog",
+			"read",
+			"reed",
+			"print_data",
+			"EOF",
+			"createStudent",
+			"str_split",
+			"readInputFile",
+			"compare",
+			"search",
+			"fai",
+			"function_match",
+			"save_record",
+			"THO_",
+			"<!DOCTYPE html>\n<html>\n<head>\n  <title>Pham Trung Dung</title>\n</head>\n\n<body>\n\n  <h1>Pham Trung Dung</h1>\n\n<table style=\"width:100%\">\n  <tr>\n    <td>Jill</td>\n    <td>Smith</td> \n    <td>50</td>\n  </tr>\n  <tr>\n    <td>Eve</td>\n    <td>Jackson</td> \n    <td>94</td>\n  </tr>\n</table>\n</body>\n\n</html>",
+			"Type",
+			"compileFunc",
+			"Type",
+			"compileLVa",
+			"compileConstant",
+			"compileExpression",
+			"compileAssignst",
+			"compileIndexes",
+			"compileLValue",
+			"compileAssign",
+			"compileState",
+			"compileBasicType",
+			"compileStatements",
+			"compileConsta",
+			"constant",
+			"enterBlock",
+			"createVariableObject",
+			"compileArguments",
+			"compileArgument",
+			"checkTypeEquality",
+			"ERR_INVALID_CONSTANT_CHAR",
+			"ERR_INVALID_STATEMENT",
+			"checkdeclare",
+			"WRITE",
+			"WRITEI",
+			"findObject",
+			"Scope",
+			"compileStatement(void)",
+			"compileStatement()",
+			"WhileSt",
+			"Statements",
+			"Invalid ",
+			"compileFactor",
+			"compileConstant",
+			";\n",
+			"compileTerm",
+			"paramList",
+			"compilePro",
+			"compileProcedure",
+			"checkDeclaredVariable",
+			"ERR_UNDECLARED_CONSTANT",
+			"checkArrayType",
+			"compileFactor",
+			"compileForSt",
+			"ERR_INVALID_PROCEDURE",
+			"A prodedure",
+			"scope",
+			"checkDeclaredLValueIdent",
+			"compileIndexes",
+			"compileArgument",
+			"compileExpression",
+			"compileArguments",
+			"Missing",
+			"findObject",
+			"compileExpression",
+			"compileAssignSt",
+			"compileStatement",
+			"Type_",
+			"elementType",
+			"checkBasicType",
+			"checkFreshIdent",
+			"checkFressIden",
+			"createProgramObject"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"F:\\ICT\\Sem8\\Web Programming\\hustdoc.vn\\app\\View\\Themed\\default\\webroot\\img\\images",
+			"hustdoc.vn/",
+			"http://hustdoc.vn",
+			"WP_HW03",
+			"sample",
+			"",
+			"[QHSCC].[dbo].[QHS_DM_HOSO_HLUC]",
+			"[QHSCC].[dbo].[QHS_DM_HOSO]",
+			"([QHSCC].[dbo].[qhs_dm_phuluc] ([MA], [DHS_MA], [KY_HIEU], [TEN], [GHI_CHU], [PL_CHINH], [HLUC_TU_NGAY], [HLUC_DEN_NGAY])",
+			"[QHSCC].[dbo].[qhs_dm_phuluc] ([MA], [DHS_MA], [KY_HIEU], [TEN], [GHI_CHU], [PL_CHINH], [HLUC_TU_NGAY], [HLUC_DEN_NGAY])",
+			"",
+			"[QHSCC].[dbo].[QHS_DM_HOSO]",
+			"",
+			"[QHSCC].[dbo].[QHS_DM_HOSO]",
+			"            ([MA], [DHS_MA], [KY_HIEU],\n             [TEN], [GHI_CHU], [PL_CHINH],\n             [HLUC_TU_NGAY], [HLUC_DEN_NGAY]\n            )",
+			"[QHSCC].[dbo].[qhs_dm_phuluc]",
+			"",
+			"[ID], [DHS_MA], [KY_HIEU],\n             [TEN],\n             [SO_NGAY_XULY], [MA_HOSO], [HLUC_TU_NGAY], [HLUC_DEN_NGAY],\n             [GHI_CHU]",
+			"[QHSCC].[dbo].[qhs_dm_hoso_hluc]",
+			"",
+			"[LOAI], [KY_BAOCAO], [TEN],\n             [TEN_FORM], [TEN_REPORT], [KHO_GIAY], [CO_NHAP], [TEN_BANG_DTL],\n             [RA_EXCEL], [THU_TUC_THOP_EXCEL], [TEN_FILE_EXCEL],\n             [NGAY_HIEU_LUC],[HDR_ID_FIELD]",
+			"[QHSCC].[dbo]",
+			"itson552",
+			"text",
+			"led",
+			"<a class=\"no-hover\" href=\"#\">",
+			"",
+			"well well-sm",
+			"ok",
+			"preview"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/View/Documents/view.ctp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5956,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/View/Documents/add.ctp",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1806,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1134,
+								1134
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Model/Document.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5732,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3892,
+								3890
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1610.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/Plugin/CakeFileStorage/README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3265,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2604,
+								2604
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 750.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/wamp/bin/apache/apache2.4.9/conf/httpd.conf",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 20560,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10472,
+								10472
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 4309.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 127.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "hustdoc.vn.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"F:\\Study Resources\\bootstrap\\new.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 104.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 261.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

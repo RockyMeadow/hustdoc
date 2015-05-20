@@ -20,8 +20,7 @@
 		echo $this->Form->hidden('downloads',array('value'=>'0'));
 		echo $this->Form->input('Document.Topic',array('title'=>'Topic', 'type'=>'select', 'multiple'=>true));
 		echo $this->Form->input('visible', array('options' => array( 'only me' => 'Only me', 'member only' => 'Member Only','public'=>'Public') ));
-		echo $this->Form->file('file');
-			echo $this->Form->submit(__('Upload', true));
+		echo $this->Form->file('Document.submittedfile'); 
 		
 	?>
 
