@@ -13,15 +13,12 @@
 		echo $this->Form->hidden('likes',array('value'=>'0'));
 		echo $this->Html->script('ckeditor/ckeditor');
 		echo $this->Form->input('body',array('class'=>'ckeditor'));
-		//echo $this->Form->input('body');
-		echo $this->Form->hidden('size',array('value'=>'0'));
 		echo $this->Form->input('author');
 		echo $this->Form->hidden('views',array('value'=>'0'));
 		echo $this->Form->hidden('downloads',array('value'=>'0'));
 		echo $this->Form->input('Document.Topic',array('title'=>'Topic', 'type'=>'select', 'multiple'=>true));
 		echo $this->Form->input('visible', array('options' => array( 'only me' => 'Only me', 'member only' => 'Member Only','public'=>'Public') ));
-		echo $this->Form->file('file');
-			echo $this->Form->submit(__('Upload', true));
+		
 		
 	?>
 

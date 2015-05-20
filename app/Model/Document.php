@@ -16,7 +16,7 @@ class Document extends AppModel {
  * @var array
  */
 
-	public $actsAs = array('CakeFileStorage.FileStorage');
+
 	public $displayField = 'name';
 
 	public $validate = array(

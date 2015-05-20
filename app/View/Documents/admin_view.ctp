@@ -71,8 +71,10 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
+		<li><?php echo $this->Html->link(__('Downloads Document'), array('action' => 'download', $document['Document']['name'])); ?> </li>
 		<li><?php echo $this->Html->link(__('Edit Document'), array('action' => 'edit', $document['Document']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Document'), array('action' => 'delete', $document['Document']['id']), array(), __('Are you sure you want to delete # %s?', $document['Document']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Convert to file docx'), array('action' => 'convert', $document['Document']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete Document'), array('action' => 'delete', $document['Document']['id'],$document['Document']['name']), array(), __('Are you sure you want to delete # %s?', $document['Document']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Documents'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Document'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link("Back to the dashboard",   array('controller'=>'users','action'=>'admin_dashboard')); ?></li>

@@ -1,9 +1,6 @@
-<?php $this->Html->script('/TinyMCE/webroot/js/tiny_mce/tiny_mce.js', array(
-    'inline' => false
-));
-?>	
+
 <div class="documents form">
-<?php echo $this->Form->create('Document'); ?>
+<?php echo $this->Form->create('Document',array('type' => 'file')); ?>
 	<fieldset>
 		<legend><?php echo __('Add Document'); ?></legend>
 	<?php
@@ -13,7 +10,6 @@
 		echo $this->Form->hidden('likes',array('value'=>'0'));
 		echo $this->Html->script('ckeditor/ckeditor');
 		echo $this->Form->input('body',array('class'=>'ckeditor'));
-		//echo $this->Form->input('body');
 		echo $this->Form->hidden('size',array('value'=>'0'));
 		echo $this->Form->input('author');
 		echo $this->Form->hidden('views',array('value'=>'0'));

@@ -27,5 +27,8 @@
 	},
 	"bin": [
 		"lib/Cake/Console/cake"
-	]
+	],
+	"require" :{
+       "phpoffice/phpword": "dev-master"
+    }
 }

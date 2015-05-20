@@ -20,6 +20,7 @@
 			<?php echo $this->Html->link($document['User']['username'], array('controller' => 'users', 'action' => 'view', $document['User']['username'])); ?>
 			&nbsp;
 		</dd>
+
 		<dt><?php echo __('Summary'); ?></dt>
 		<dd>
 			<?php echo h($document['Document']['summary']); ?>
@@ -76,7 +77,7 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Document'), array('action' => 'edit', $document['Document']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Document'), array('action' => 'delete', $document['Document']['id']), array(), __('Are you sure you want to delete # %s?', $document['Document']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete Document'), array('action' => 'delete', $document['Document']['id'], $document['Document']['name']), array(), __('Are you sure you want to delete # %s?', $document['Document']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Documents'), array('action' => 'index')); ?></li>
 		 <li><?php echo $this->Html->link("Back to the dashboard",'http://localhost/hustdoc.vn/admin'); ?></li>
         

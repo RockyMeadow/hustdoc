@@ -67,8 +67,8 @@ Cache::config('default', array('engine' => 'File'));
  *
  * CakePlugin::loadAll(); // Loads all plugins at once*/
   CakePlugin::load('DebugKit'); //Loads a single plugin named DebugKit
-  CakePlugin::load('CakeFileStorage');
- 
+  
+  CakePlugin::load('TinyMCE');
 
 /**
  * To prefer app translation over plugin translation, you can set
@@ -112,3 +112,5 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+
+CakePlugin::load('Composer', array('bootstrap' => true));

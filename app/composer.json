@@ -1,0 +1,9 @@
+{
+    "require": {
+        "monolog/monolog": "1.0.*",
+        "tinymce/tinymce": ">= 4"
+    },
+    "require": {
+       "phpoffice/phpword": "dev-master"
+    }
+}

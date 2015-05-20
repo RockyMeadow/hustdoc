@@ -5,7 +5,7 @@
 		<legend><?php echo __('Edit User'); ?></legend>
 	<?php
 		echo $this->Form->hidden('id', array('value' => $this->data['User']['id']));
-        echo $this->Form->input('username', array( 'readonly' => 'readonly', 'label' => 'Usernames cannot be changed!'));
+        echo $this->Form->hidden('username', array( 'readonly' => 'readonly', 'label' => 'Usernames cannot be changed!'));
 		echo $this->Form->input('full_name');
 		echo $this->Form->input('email');
 		echo $this->Form->input('sex', array('options' => array( 'male' => 'Male', 'female' => 'Female') ));

@@ -45,7 +45,7 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $document['Document']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $document['Document']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $document['Document']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $document['Document']['id']))); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $document['Document']['id'],$document['Document']['name']), array('confirm' => __('Are you sure you want to delete # %s?', $document['Document']['id']))); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -68,7 +68,8 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Document'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('Create New Document'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('Upload New Document'), array('action' => 'upload')); ?></li>
 		<li><?php echo $this->Html->link("Back to the dashboard",   array('controller'=>'users','action'=>'admin_dashboard')); ?></li>
         <li><?php echo $this->Html->link("Back to the main site",   array('controller'=>'topics','action'=>'admin_index') ); ?> </li>
         <br/><br/><br/>
