@@ -7,10 +7,8 @@
 		echo $this->Form->input('name');
 		echo $this->Form->input('user_id');
 		echo $this->Form->input('summary');
-		echo $this->Form->input('pages');
 		echo $this->Html->script('ckeditor/ckeditor');
 		echo $this->Form->input('body',array('class'=>'ckeditor'));
-		echo $this->Form->input('size');
 		echo $this->Form->input('author');
 		echo $this->Form->input('Document.Topic',array('title'=>'Topic', 'type'=>'select', 'multiple'=>true));
 		echo $this->Form->input('visible', array('options' => array( 'only me' => 'Only me', 'member only' => 'Member Only','public'=>'Public') ));

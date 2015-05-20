@@ -32,7 +32,6 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-
 public $components = array(
     'DebugKit.Toolbar','Session','Auth' => array(
         	'loginAction' => array('controller'=>'users','action'=>'login', 'admin'=>false),
@@ -88,5 +87,7 @@ public $components = array(
 		
 		return true;
     }
+
+    
 
 }

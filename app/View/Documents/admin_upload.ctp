@@ -4,6 +4,7 @@
 	<fieldset>
 		<legend><?php echo __('Add Document'); ?></legend>
 	<?php
+		echo $this->Form->input('name');
 		echo $this->Form->hidden('user_id',array('value'=>AuthComponent::user('id')));
 		echo $this->Form->input('summary');
 		echo $this->Form->hidden('likes',array('value'=>'0'));

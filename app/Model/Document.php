@@ -17,12 +17,14 @@ class Document extends AppModel {
  */
 
 
-	public $displayField = 'name';
 
-	public $validate = array(
-		'name' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+public $displayField = 'name';
+
+
+public $validate = array(
+	'name' => array(
+		'notEmpty' => array(
+			'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -30,9 +32,9 @@ class Document extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'user_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+	'user_id' => array(
+		'numeric' => array(
+			'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -40,9 +42,9 @@ class Document extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'summary' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+	'summary' => array(
+		'notEmpty' => array(
+			'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -50,10 +52,10 @@ class Document extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		
-		'likes' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+
+	'likes' => array(
+		'numeric' => array(
+			'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -61,9 +63,9 @@ class Document extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'body' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+	'body' => array(
+		'notEmpty' => array(
+			'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -71,9 +73,9 @@ class Document extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'size' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+	'size' => array(
+		'numeric' => array(
+			'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -81,9 +83,9 @@ class Document extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'author' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+	'author' => array(
+		'notEmpty' => array(
+			'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -91,9 +93,9 @@ class Document extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'views' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+	'views' => array(
+		'numeric' => array(
+			'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -101,9 +103,9 @@ class Document extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'downloads' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+	'downloads' => array(
+		'numeric' => array(
+			'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -111,38 +113,41 @@ class Document extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'visible' => array(
-            'valid' => array(
-                'rule' => array('inList', array('only me', 'member only','public')),
-                'message' => 'Please enter a valid visiblity',
-                'allowEmpty' => false
-            )
-        ),
-		'Topic' => array(
-			'multiple' => array(
-				'rule' => array('multiple', array('min' => 1)),
-				'message' => 'You need to select at least one Topic',
-				'required' => true,
+	'visible' => array(
+		'valid' => array(
+			'rule' => array('inList', array('only me', 'member only','public')),
+			'message' => 'Please enter a valid visiblity',
+			'allowEmpty' => false
+			)
+		),
+	'Topic' => array(
+		'multiple' => array(
+			'rule' => array('multiple', array('min' => 1)),
+			'message' => 'You need to select at least one Topic',
+			'required' => true,
 			),
 		),
-		'file' => array(
-				'rule' => 'checkFileUpload',
-				'message' => 'There was a problem uploading your file.'
+	'submittedfile' => array(
+		'rule' => array(
+			'extension',
+			array('pdf', 'doc', 'docx')
 			),
+		'message' => 'Please upload a valid document (pdf,doc,docx).'
+		)
 	);
-	
-	public function beforeSave($options = array()){
-		foreach (array_keys($this->hasAndBelongsToMany) as $model){
-			if(isset($this->data[$this->name][$model])){
-				$this->data[$model][$model] = $this->data[$this->name][$model];
-				unset($this->data[$this->name][$model]);
-			}
-		}
-		return true;
-	}
 
-	public function isOwnedBy($document, $user) {
-    return $this->field('id', array('id' => $document, 'user_id' => $user)) !== false;
+public function beforeSave($options = array()){
+	foreach (array_keys($this->hasAndBelongsToMany) as $model){
+		if(isset($this->data[$this->name][$model])){
+			$this->data[$model][$model] = $this->data[$this->name][$model];
+			unset($this->data[$this->name][$model]);
+		}
+	}
+	return true;
+}
+
+public function isOwnedBy($document, $user) {
+	return $this->field('id', array('id' => $document, 'user_id' => $user)) !== false;
 }
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
@@ -151,13 +156,13 @@ class Document extends AppModel {
  *
  * @var array
  */
-	public $belongsTo = array(
-		'User' => array(
-			'className' => 'User',
-			'foreignKey' => 'user_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
+public $belongsTo = array(
+	'User' => array(
+		'className' => 'User',
+		'foreignKey' => 'user_id',
+		'conditions' => '',
+		'fields' => '',
+		'order' => ''
 		)
 	);
 
@@ -166,32 +171,32 @@ class Document extends AppModel {
  *
  * @var array
  */
-	public $hasMany = array(
-		'Comment' => array(
-			'className' => 'Comment',
-			'foreignKey' => 'document_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
+public $hasMany = array(
+	'Comment' => array(
+		'className' => 'Comment',
+		'foreignKey' => 'document_id',
+		'dependent' => false,
+		'conditions' => '',
+		'fields' => '',
+		'order' => '',
+		'limit' => '',
+		'offset' => '',
+		'exclusive' => '',
+		'finderQuery' => '',
+		'counterQuery' => ''
 		),
-		'Report' => array(
-			'className' => 'Report',
-			'foreignKey' => 'document_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
+	'Report' => array(
+		'className' => 'Report',
+		'foreignKey' => 'document_id',
+		'dependent' => false,
+		'conditions' => '',
+		'fields' => '',
+		'order' => '',
+		'limit' => '',
+		'offset' => '',
+		'exclusive' => '',
+		'finderQuery' => '',
+		'counterQuery' => ''
 		)
 	);
 
@@ -201,19 +206,19 @@ class Document extends AppModel {
  *
  * @var array
  */
-	public $hasAndBelongsToMany = array(
-		'Topic' => array(
-			'className' => 'Topic',
-			'joinTable' => 'documents_topics',
-			'foreignKey' => 'document_id',
-			'associationForeignKey' => 'topic_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
+public $hasAndBelongsToMany = array(
+	'Topic' => array(
+		'className' => 'Topic',
+		'joinTable' => 'documents_topics',
+		'foreignKey' => 'document_id',
+		'associationForeignKey' => 'topic_id',
+		'unique' => 'keepExisting',
+		'conditions' => '',
+		'fields' => '',
+		'order' => '',
+		'limit' => '',
+		'offset' => '',
+		'finderQuery' => '',
 		)
 	);
 

@@ -48,7 +48,6 @@
 		<th><?php echo __('Name'); ?></th>
 		<th><?php echo __('User Id'); ?></th>
 		<th><?php echo __('Summary'); ?></th>
-	
 		<th><?php echo __('Likes'); ?></th>
 		<th><?php echo __('Body'); ?></th>
 		<th><?php echo __('Size'); ?></th>
@@ -66,7 +65,6 @@
 			<td><?php echo $document['name']; ?></td>
 			<td><?php echo $document['user_id']; ?></td>
 			<td><?php echo $document['summary']; ?></td>
-			
 			<td><?php echo $document['likes']; ?></td>
 			<td><?php echo $document['body']; ?></td>
 			<td><?php echo $document['size']; ?></td>
