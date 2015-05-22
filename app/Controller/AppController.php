@@ -60,14 +60,14 @@ public $components = array(
 		if(isset($this->request->prefix) && ($this->request->prefix == 'admin')){
 			if($this->Auth->loggedIn()){
 				$this->Auth->allow();
-				$this->layout = 'admin';
+				$this->layout = 'bootstrap';
 			}else{
 				$this->Auth->deny();
-				$this->layout = 'front';
+				$this->layout = 'bootstrap';
 			}
 		}else{
 			$this->Auth->allow();
-			$this->layout = 'front';
+			$this->layout = 'bootstrap';
 		}
 	}
 	

@@ -16,8 +16,10 @@ class Document extends AppModel {
  * @var array
  */
 
-	// public $actsAs = array('CakeFileStorage.FileStorage');
+
+
 public $displayField = 'name';
+
 
 public $validate = array(
 	'name' => array(
@@ -147,6 +149,25 @@ public function beforeSave($options = array()){
 public function isOwnedBy($document, $user) {
 	return $this->field('id', array('id' => $document, 'user_id' => $user)) !== false;
 }
+
+public function getDocumentsByTopicId($topicId = null) {
+    if(empty($topicId)) return false;
+    $documents = $this->find('all', array(
+        'joins' => array(
+             array('table' => 'documents_topics',
+                'alias' => 'DocumentsTopics',
+                'type' => 'INNER',
+                'conditions' => array(
+                    'DocumentsTopics.topic_id' => $topicId,
+                    'DocumentsTopics.document_id = Document.id'
+                )
+            )
+        ),
+        'group' => 'Document.id'
+    ));
+    return $documents;
+}
+
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
