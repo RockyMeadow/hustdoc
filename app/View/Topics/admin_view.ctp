@@ -31,6 +31,7 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
+		<li><?php echo $this->Html->link(__('Download All Documents'), array('controller' => 'documents', 'action' => 'documentsdownload', $topic['Topic']['id'])); ?> </li> 
 		<li><?php echo $this->Html->link(__('Edit Topic'), array('action' => 'edit', $topic['Topic']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Topic'), array('action' => 'delete', $topic['Topic']['id']), array(), __('Are you sure you want to delete # %s?', $topic['Topic']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Topics'), array('action' => 'index')); ?> </li>

@@ -1,3 +1,4 @@
+
 <div class="documents form">
 <?php echo $this->Form->create('Document'); ?>
 	<fieldset>
@@ -15,6 +16,7 @@
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
+
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
@@ -27,3 +29,4 @@
         <li><?php  echo $this->Html->link( "Logout",   array('controller'=>'users','action'=>'admin_logout') );  ?></li>
 	</ul>
 </div>
+	

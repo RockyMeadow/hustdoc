@@ -393,7 +393,29 @@ public function admin_delete($id = null) {
 	}
 	return $this->redirect(array('action' => 'index'));
 }
-
+public function admin_documentsdownload($id = null){
+		if($this->isAuthorized()){
+			$this->loadModel('Topic');
+			$topic = $this->Topic->find('first',array('conditions' => array('Topic.id' => $id)));
+			$documents=$this->Document->getDocumentsByTopicId($id);
+			$zip = new ZipArchive();
+			$zip_name = WWW_ROOT.$topic['Topic']['title'].'.zip';
+			$zip->open($zip_name, ZipArchive::CREATE);
+			foreach ($documents as $document) {
+				$path = WWW_ROOT.'uploads'.'/'.$document['Document']['user_id'].'/'.$document['Document']['id'].'/'.$document['Document']['filename'];
+				if(file_exists($path) && $document['Document']['filename']!=null){
+					$zip->addFile($path,$document['Document']['filename']);
+				}
+			}
+			$zip->close();
+			$this->response->file($zip_name, array('download'=>true, 'name'=>$topic['Topic']['title'].'.zip'));
+			// 
+		return $this->response;
+		}else{
+			$this->Session->setFlash(__('You do not have permission to do this'));
+			return $this->redirect(array('controller'=>'users','action' => 'admin_dashboard'));			
+		}
+	}
 /**
  * delete method
  *

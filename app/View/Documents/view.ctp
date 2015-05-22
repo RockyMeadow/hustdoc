@@ -2,6 +2,7 @@
 	($document['Document']['visible']=='member only' && AuthComponent::user())  || 
 	($document['Document']['visible']=='only me' && (AuthComponent::user('role')=='admin' || 
 	AuthComponent::user('id')==$document['Document']['user_id']))) { ?>
+	<?php if ($document['Document']['filename']!='') :?>
 	<div class="documents view">
 		<h2><?php echo __('Document'); ?></h2>
 		<?php
@@ -32,11 +33,6 @@
 			<dt><?php echo __('Likes'); ?></dt>
 			<dd>
 				<?php echo h($document['Document']['likes']); ?>
-				&nbsp;
-			</dd>
-			<dt><?php echo __('Body'); ?></dt>
-			<dd>
-				<?php echo ($document['Document']['body']); ?>
 				&nbsp;
 			</dd>
 			<dt><?php echo __('Size'); ?></dt>
@@ -76,7 +72,69 @@
 			</dd>
 		</dl>
 	</div>
->>>>>>> 71208da1bf176d623ba24db27c44e19d0585bec4
+<?php endif; ?>
+<?php if ($document['Document']['filename']!='') :?>
+	<div class="documents view">
+		<h2><?php echo __('Document'); ?></h2>
+		<dl>
+			<dt><?php echo __('Name'); ?></dt>
+			<dd>
+				<?php echo h($document['Document']['name']); ?>
+				&nbsp;
+			</dd>
+			<dt><?php echo __('User'); ?></dt>
+			<dd>
+				<?php echo $this->Html->link($document['User']['username'], array('controller' => 'users', 'action' => 'view', $document['User']['username'])); ?>
+				&nbsp;
+			</dd>
+			<dt><?php echo __('Summary'); ?></dt>
+			<dd>
+				<?php echo h($document['Document']['summary']); ?>
+				&nbsp;
+			</dd>
+			<dt><?php echo __('Likes'); ?></dt>
+			<dd>
+				<?php echo h($document['Document']['likes']); ?>
+				&nbsp;
+			</dd>
+			<dt><?php echo __('Body'); ?></dt>
+			<dd>
+				<?php echo ($document['Document']['body']); ?>
+				&nbsp;
+			</dd>
+			<dt><?php echo __('Author'); ?></dt>
+			<dd>
+				<?php echo h($document['Document']['author']); ?>
+				&nbsp;
+			</dd>
+			<dt><?php echo __('Views'); ?></dt>
+			<dd>
+				<?php echo h($document['Document']['views']); ?>
+				&nbsp;
+			</dd>
+			<dt><?php echo __('Downloads'); ?></dt>
+			<dd>
+				<?php echo h($document['Document']['downloads']); ?>
+				&nbsp;
+			</dd>
+			<dt><?php echo __('Created'); ?></dt>
+			<dd>
+				<?php echo h($document['Document']['created']); ?>
+				&nbsp;
+			</dd>
+			<dt><?php echo __('Modified'); ?></dt>
+			<dd>
+				<?php echo h($document['Document']['modified']); ?>
+				&nbsp;
+			</dd>
+			<dt><?php echo __('Visible'); ?></dt>
+			<dd>
+				<?php echo h($document['Document']['visible']); ?>
+				&nbsp;
+			</dd>
+		</dl>
+	</div>
+<?php endif; ?>
 	<div class="actions">
 		<h3><?php echo __('Actions'); ?></h3>
 		<ul>
