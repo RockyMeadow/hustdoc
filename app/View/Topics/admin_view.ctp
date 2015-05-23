@@ -31,6 +31,7 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
+		<li><?php echo $this->Html->link(__('Download All Documents'), array('controller' => 'documents', 'action' => 'documentsdownload', $topic['Topic']['id'])); ?> </li> 
 		<li><?php echo $this->Html->link(__('Edit Topic'), array('action' => 'edit', $topic['Topic']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Topic'), array('action' => 'delete', $topic['Topic']['id']), array(), __('Are you sure you want to delete # %s?', $topic['Topic']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Topics'), array('action' => 'index')); ?> </li>
@@ -48,7 +49,6 @@
 		<th><?php echo __('Name'); ?></th>
 		<th><?php echo __('User Id'); ?></th>
 		<th><?php echo __('Summary'); ?></th>
-		<!-- <th><?php echo __('Pages'); ?></th> -->
 		<th><?php echo __('Likes'); ?></th>
 		<th><?php echo __('Body'); ?></th>
 		<th><?php echo __('Size'); ?></th>
@@ -66,7 +66,6 @@
 			<td><?php echo $document['name']; ?></td>
 			<td><?php echo $document['user_id']; ?></td>
 			<td><?php echo $document['summary']; ?></td>
-			<!-- <td><?php echo $document['pages']; ?></td> -->
 			<td><?php echo $document['likes']; ?></td>
 			<td><?php echo $document['body']; ?></td>
 			<td><?php echo $document['size']; ?></td>

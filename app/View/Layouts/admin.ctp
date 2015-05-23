@@ -33,6 +33,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
+		$this->Html->script('/TinyMCE/js/tiny_mce/tiny_mce.js', array(
+    'inline' => false
+));
 	?>
 </head>
 <body>
@@ -61,3 +64,4 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>
+
