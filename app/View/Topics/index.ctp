@@ -47,7 +47,7 @@
 						<td><?php echo h($topic['Topic']['id']); ?>&nbsp;</td>
 						<td><?php echo h($topic['Topic']['title']); ?>&nbsp;</td>
 								<td>
-			<?php echo $this->Html->link($topic['User']['id'], array('controller' => 'users', 'action' => 'view', $topic['User']['id'])); ?>
+			<?php echo $this->Html->link($topic['User']['full_name'], array('controller' => 'users', 'action' => 'view', $topic['User']['id'])); ?>
 		</td>
 						<td><?php echo h($topic['Topic']['created']); ?>&nbsp;</td>
 						<td><?php echo h($topic['Topic']['modified']); ?>&nbsp;</td>

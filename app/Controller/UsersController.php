@@ -25,7 +25,7 @@ class UsersController extends AppController {
 
 
     public function login() {
-		
+		// $this->Session->setFlash(__('My message.'), 'default', array('class' => 'notification'), 'notification');
 		//if already logged-in, redirect
 		if($this->Session->check('Auth.User')){
 			return $this->redirect(array('action' => 'dashboard'));		
@@ -36,13 +36,14 @@ class UsersController extends AppController {
 			if ($this->Auth->login()) {
 			
 				
-			
-					$this->Session->setFlash(__('Welcome, '. $this->Auth->user('username')));
+					$this->Session->setFlash(__('Welcome, '. $this->Auth->user('username').' !'), 'flash-success');
+					// $this->Session->setFlash(__('Welcome, '. $this->Auth->user('username')));
 					return $this->redirect($this->Auth->redirectUrl());
 
 				
 			} else {
-				$this->Session->setFlash(__('Invalid username or password'));
+				$this->Session->setFlash(__('Invalid username or password'), 'flash-danger');
+				// $this->Session->setFlash(__('Invalid username or password'));
 			}
 		} 
 	}
@@ -237,6 +238,12 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		}
+	}
+
+	public function getusername($id)
+	{
+		$user = $this->User->find('first',array('conditions' => array('User.id'=>$id)));
+		$this->response($user['User']['full_name']);
 	}
 
 

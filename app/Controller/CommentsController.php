@@ -47,6 +47,24 @@ class CommentsController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
+			$docid = $this->request->data['Comment']['document_id'];
+			$this->request->data['Comment']['user_id'] = $this->Auth->user('id');
+			$this->request->data['Comment']['username'] = $this->Auth->user('full_name');
+			$this->Comment->create();
+			if ($this->Comment->save($this->request->data)) {
+				$this->Session->setFlash(__('The comment has been saved.'), 'flash-success');
+				return $this->redirect(array('controller'=>'documents','action' => 'view',$docid));
+			} else {
+				$this->Session->setFlash(__('The comment could not be saved. Please, try again.'), 'flash-danger');
+			}
+		}
+		$users = $this->Comment->User->find('list');
+		$documents = $this->Comment->Document->find('list');
+		$this->set(compact('users', 'documents'));
+	}
+
+	public function admin_add() {
+		if ($this->request->is('post')) {
 			$this->Comment->create();
 			if ($this->Comment->save($this->request->data)) {
 				$this->Session->setFlash(__('The comment has been saved.'));
@@ -60,6 +78,12 @@ class CommentsController extends AppController {
 		$this->set(compact('users', 'documents'));
 	}
 
+	// public function getusername($id)
+	// {
+	// 	$this->loadModel('User');
+	// 	$user = $this->User->find('first',array('conditions' => array('User.id'=>$id)));
+	// 	$this->response($user['User']['full_name']);
+	// }
 /**
  * edit method
  *

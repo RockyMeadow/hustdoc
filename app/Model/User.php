@@ -21,7 +21,7 @@ class User extends AppModel {
 		'username' => array(
             'nonEmpty' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'A username is required',
+                'message' => 'An username is required',
                 'allowEmpty' => false
             ),
             'between' => array( 

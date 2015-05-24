@@ -1,24 +1,55 @@
 <div class="topics form">
-<?php echo $this->Form->create('Topic'); ?>
-	<fieldset>
-		<legend><?php echo __('Edit Topic'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('title');
-		echo $this->Form->hidden('user_id',array('value'=>AuthComponent::user('id')));
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Topic.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('Topic.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Topics'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Documents'), array('controller' => 'documents', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Document'), array('controller' => 'documents', 'action' => 'add')); ?> </li>
-	</ul>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h1><?php echo __('Admin Edit Topic'); ?></h1>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="row">
+		<div class="col-md-3">
+			<div class="actions">
+				<div class="panel panel-default">
+					<div class="panel-heading">Actions</div>
+						<div class="panel-body">
+							<ul class="nav nav-pills nav-stacked">
+
+																<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Delete'), array('action' => 'delete', $this->Form->value('Topic.id')), array('escape' => false), __('Are you sure you want to delete # %s?', $this->Form->value('Topic.id'))); ?></li>
+																<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Topics'), array('action' => 'index'), array('escape' => false)); ?></li>
+									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Users'), array('controller' => 'users', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New User'), array('controller' => 'users', 'action' => 'add'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List Documents'), array('controller' => 'documents', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Document'), array('controller' => 'documents', 'action' => 'add'), array('escape' => false)); ?> </li>
+							</ul>
+						</div>
+					</div>
+				</div>			
+		</div><!-- end col md 3 -->
+		<div class="col-md-9">
+			<?php echo $this->Form->create('Topic', array('role' => 'form')); ?>
+
+				<div class="form-group">
+					<?php echo $this->Form->input('id', array('class' => 'form-control', 'placeholder' => 'Id'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('title', array('class' => 'form-control', 'placeholder' => 'Title'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('user_id', array('class' => 'form-control', 'placeholder' => 'User Id'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('Document', array('class' => 'form-control', 'placeholder' => 'Modified'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>
+				</div>
+
+			<?php echo $this->Form->end() ?>
+
+		</div><!-- end col md 12 -->
+	</div><!-- end row -->
 </div>

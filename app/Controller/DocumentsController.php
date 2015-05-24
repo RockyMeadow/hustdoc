@@ -109,10 +109,10 @@ public function admin_view($id = null) {
 			$this->request->data['Document']['filename'] = $this->data['Document']['submittedfile']['name'];
 			// *****************
 			if ($this->Document->save($this->request->data)) {
-				$this->Session->setFlash(__('The document has been saved.'));
+				$this->Session->setFlash(__('The document has been saved.', 'flash-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The document could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The document could not be saved. Please, try again.', 'flash-danger'));
 			}
 		}
 		$users = $this->Document->User->find('list');
@@ -120,7 +120,7 @@ public function admin_view($id = null) {
 		$this->set(compact('users', 'topics'));
 		
 		} else{
-			$this->Session->setFlash(__('You do not have permission to do this'));
+			$this->Session->setFlash(__('You do not have permission to do this', 'flash-danger'));
 			return $this->redirect('http://localhost/hustdoc.vn/login');
 			}
 	}
@@ -142,17 +142,17 @@ public function admin_view($id = null) {
 			$this->request->data['Document']['size'] = $this->data['Document']['submittedfile']['size'];
 			// *****************
 			if ($this->Document->save($this->request->data)) {
-				$this->Session->setFlash(__('The document has been saved.'));
+				$this->Session->setFlash(__('The document has been saved.'), 'flash-success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The document could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The document could not be saved. Please, try again.'), 'flash-success');
 			}
 		}
 		$users = $this->Document->User->find('list');
 		$topics = $this->Document->Topic->find('list');
 		$this->set(compact('users', 'topics'));
 		} else{
-			$this->Session->setFlash(__('You do not have permission to do this'));
+			$this->Session->setFlash(__('You do not have permission to do this'), 'flash-danger');
 			return $this->redirect('http://localhost/hustdoc.vn/login');
 			}
 	}
@@ -167,7 +167,7 @@ public function admin_add() {
 			$this->Document->validator()->remove('Topic');
 			$data = $this->data['Document']['body'];
 			if ($this->Document->save($this->request->data)) {
-				$this->Session->setFlash(__('The document has been saved.'));
+				$this->Session->setFlash(__('The document has been saved.'), 'flash-success');
 				
 				$folder = new Folder();
 				if ($folder->create(WWW_ROOT. DS . 'uploads'.DS. $this->Auth->user('id'). DS. $this->Document->id))
@@ -182,7 +182,7 @@ public function admin_add() {
   				return $this->redirect(array('action' => 'admin_view',$this->Document->id));
 					
 					} else {
-				$this->Session->setFlash(__('The document could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The document could not be saved. Please, try again.'), 'flash-danger');
 			}
 		}
 		$users = $this->Document->User->find('list');
@@ -216,10 +216,10 @@ public function admin_upload() {
 				$this->word2pdf($doc_file,$output_file);
 
 			}
-			$this->Session->setFlash(__('The document has been saved.'));
+			$this->Session->setFlash(__('The document has been saved.'), 'flash-success');
 			return $this->redirect(array('action' => 'index'));
 		} else {
-			$this->Session->setFlash(__('The document could not be saved. Please, try again.'));
+			$this->Session->setFlash(__('The document could not be saved. Please, try again.'), 'flash-danger');
 		}
 	}
 	$users = $this->Document->User->find('list');
@@ -333,10 +333,10 @@ public function edit($id = null) {
 	}
 	if ($this->request->is(array('post', 'put'))) {
 		if ($this->Document->save($this->request->data)) {
-			$this->Session->setFlash(__('The document has been saved.'));
+			$this->Session->setFlash(__('The document has been saved.'), 'flash-success');
 			return $this->redirect(array('action' => 'index'));
 		} else {
-			$this->Session->setFlash(__('The document could not be saved. Please, try again.'));
+			$this->Session->setFlash(__('The document could not be saved. Please, try again.'), 'flash-danger');
 		}
 	} else {
 		$options = array('conditions' => array('Document.' . $this->Document->primaryKey => $id));
@@ -357,7 +357,7 @@ public function admin_edit($id = null) {
 			$this->Session->setFlash(__('The document has been saved.'));
 			return $this->redirect(array('action' => 'index'));
 		} else {
-			$this->Session->setFlash(__('The document could not be saved. Please, try again.'));
+			$this->Session->setFlash(__('The document could not be saved. Please, try again.'), 'flash-danger');
 		}
 	} else {
 		$options = array('conditions' => array('Document.' . $this->Document->primaryKey => $id));
@@ -386,10 +386,10 @@ public function admin_delete($id = null) {
 	$folder->delete();
 		//Deleted
 	if ($this->Document->delete()) {
-		$this->Session->setFlash(__('The document has been deleted.'));
+		$this->Session->setFlash(__('The document has been deleted.'), 'flash-success');
 		print_r($path);
 	} else {
-		$this->Session->setFlash(__('The document could not be deleted. Please, try again.'));
+		$this->Session->setFlash(__('The document could not be deleted. Please, try again.'), 'flash-danger');
 	}
 	return $this->redirect(array('action' => 'index'));
 }
@@ -412,7 +412,7 @@ public function admin_documentsdownload($id = null){
 			// 
 		return $this->response;
 		}else{
-			$this->Session->setFlash(__('You do not have permission to do this'));
+			$this->Session->setFlash(__('You do not have permission to do this'), 'flash-danger');
 			return $this->redirect(array('controller'=>'users','action' => 'admin_dashboard'));			
 		}
 	}
@@ -437,9 +437,9 @@ public function delete($id = null) {
 	$folder->delete();
 		//Deleted
 	if ($this->Document->delete()) {
-		$this->Session->setFlash(__('The document has been deleted.'));
+		$this->Session->setFlash(__('The document has been deleted.'), 'flash-success');
 	} else {
-		$this->Session->setFlash(__('The document could not be deleted. Please, try again.'));
+		$this->Session->setFlash(__('The document could not be deleted. Please, try again.'), 'flash-danger');
 	}
 	return $this->redirect(array('action' => 'index'));
 }

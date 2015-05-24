@@ -26,6 +26,13 @@ class TopicsController extends AppController {
     }
 
 	public function index() {
+		// $this->loadModel('User');
+		// $this->Topic->recursive = 0;
+		// $topics = $this->Paginator->paginate();
+		// foreach ($topics as $topics) {
+		// 	$user = $this->User->find('first',array('conditions'=>array('User.id'=>$topics[])));
+		// }
+		// $this->set('topics', $this->Paginator->paginate());
 		$this->Topic->recursive = 0;
 		$this->set('topics', $this->Paginator->paginate());
 	}

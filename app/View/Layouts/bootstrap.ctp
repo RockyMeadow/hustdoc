@@ -1,39 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
 	<title>
 		<?php echo $title_for_layout; ?>
 	</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-	<?php
-		echo $this->Html->meta('icon');
+  <?php
+  echo $this->Html->meta('icon');
 
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
+  echo $this->fetch('meta');
+  echo $this->fetch('css');
+  echo $this->fetch('script');
 
-  	<!-- Latest compiled and minified CSS -->
-  	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  echo $this->Html->css('footer'); 
+  echo $this->Html->css('demo'); 
+  echo $this->Html->css('bootstrap.min.css');
+  ?>
 
-  	<!-- Latest compiled and minified JavaScript -->
-  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"> -->
+  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
+      <![endif]-->
 
-    <style type="text/css">
-    	body{ padding: 70px 0px; }
-    </style>
+      <style type="text/css">
+       body{ padding: 70px 0px; }
+     </style>
 
+     <!-- Search Bar with filter -->
+     <script type="text/javascript">
+      $(document).ready(function(e){
+        $('.search-panel .dropdown-menu').find('a').click(function(e) {
+          e.preventDefault();
+          var param = $(this).attr("href").replace("#","");
+          var concept = $(this).text();
+          $('.search-panel span#search_concept').text(concept);
+          $('.input-group #search_param').val(param);
+        });
+      });
+    </script>
   </head>
 
   <body>
@@ -42,11 +59,11 @@
 
     <div class="container">
 
-			<?php echo $this->Session->flash(); ?>
+     <?php echo $this->Session->flash(); ?>
 
-			<?php echo $this->fetch('content'); ?>
+     <?php echo $this->fetch('content'); ?>
 
-    </div><!-- /.container -->
-
-  </body>
+   </div><!-- /.container -->
+   <?php echo $this->Element('footer'); ?>
+</body>
 </html>
