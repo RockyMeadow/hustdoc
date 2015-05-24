@@ -4,7 +4,7 @@
 	<?php
 	$iframe_start = '<iframe allowtransparency="true" style="background:#000;"cframeborder="0" scrolling="no" src="http://localhost/pdf.js/web/viewer.html?file=';
 	$iframe_end = '" height="545px" width="874px"></iframe>';
-	$src = 'http://localhost/hustdoc.vn/app/webroot/uploads'. DS. $document['User']['id'].DS.$document['Document']['id']. DS. $document['Document']['filename']; 
+	$src = 'http://localhost/hustdoc.vn/app/webroot/uploads'. '/'. $document['User']['id'].'/'.$document['Document']['id']. '/'. $document['Document']['filename']; 
 	if ($document['Document']['type'] != 'application/pdf') {
 		$src = $src . '.pdf';
 	}
@@ -145,10 +145,18 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
+		<?php if ($document['Document']['filename']!='') :?>
 		<li><?php echo $this->Html->link(__('Downloads Document'), array('action' => 'download', $document['Document']['id'],$document['Document']['filename'])); ?> </li>
+	
+		<li><?php echo $this->Html->link(__('Edit Document'), array('action' => 'editupload', $document['Document']['id'])); ?> </li>
+		<?php endif ?>
+		<?php if ($document['Document']['filename']=='') :?>	
 		<li><?php echo $this->Html->link(__('Edit Document'), array('action' => 'edit', $document['Document']['id'])); ?> </li>
+		<?php endif ?>
+		<?php if ($document['Document']['filename']=='') :?>
 		<li><?php echo $this->Html->link(__('Convert to file docx'), array('action' => 'convert', $document['Document']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Document'), array('action' => 'delete', $document['Document']['id'],$document['Document']['name']), array(), __('Are you sure you want to delete # %s?', $document['Document']['id'])); ?> </li>
+		<?php endif ?>
+		<li><?php echo $this->Form->postLink(__('Delete Document'), array('action' => 'delete', $document['Document']['id']), array(), __('Are you sure you want to delete # %s?', $document['Document']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Documents'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Document'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link("Back to the dashboard",   array('controller'=>'users','action'=>'admin_dashboard')); ?></li>

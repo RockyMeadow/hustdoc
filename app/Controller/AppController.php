@@ -52,7 +52,11 @@ public $components = array(
         		)
         	),
         	'authorize' => array('Controller')
-        )
+        ),
+    'Search.Prg' => array(
+        'commonProcess' => array('paramType' => 'named'),
+        'presetForm' => array('paramType' => 'named')
+    )
     ); 
 	
 	public function beforeFilter() {

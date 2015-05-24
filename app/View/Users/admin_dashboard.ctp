@@ -25,8 +25,8 @@ if($user['role'] == 'admin') : ?>
 <li><?php  echo $this->Html->link( "View Topics Listing",   'http://localhost/hustdoc.vn/topics' );  ?></li>
 <li><?php  echo $this->Html->link( "View Documents Listing",   'http://localhost/hustdoc.vn/documents' );  ?></li>
 <li><?php  echo $this->Html->link( "Create a new Documents",  'http://localhost/hustdoc.vn/documents/add' );  ?></li>
-<li><?php  echo $this->Html->link( "View Your Profile",   array('controller'=>'users','action'=>'admin_profile') );  ?></li>
-<li><?php  echo $this->Html->link( "Edit Your Profile",   array('controller'=>'users','action'=>'admin_profile_edit') );  ?></li>
+<li><?php  echo $this->Html->link( "View Your Profile",   array('controller'=>'users','action'=>'profile') );  ?></li>
+<li><?php  echo $this->Html->link( "Edit Your Profile",   array('controller'=>'users','action'=>'profile_edit') );  ?></li>
 
 <?php endif ?>
 <li><?php  echo $this->Html->link( "Logout",   array('controller'=>'users','action'=>'admin_logout') );  ?></li>

@@ -17,20 +17,21 @@ class Document extends AppModel {
  */
 
 
-
+public $actsAs = array(
+        'Search.Searchable'
+    );
 public $displayField = 'name';
 
 
 public $validate = array(
 	'name' => array(
-		'notEmpty' => array(
-			'rule' => array('notEmpty'),
+		
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+			
 		),
 	'user_id' => array(
 		'numeric' => array(
@@ -84,14 +85,13 @@ public $validate = array(
 			),
 		),
 	'author' => array(
-		'notEmpty' => array(
-			'rule' => array('notEmpty'),
+		
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+			
 		),
 	'views' => array(
 		'numeric' => array(
@@ -135,6 +135,44 @@ public $validate = array(
 		'message' => 'Please upload a valid document (pdf,doc,docx).'
 		)
 	);
+
+
+public $filterArgs = array(
+	'name' => array(
+            'type' => 'like',
+            'field' => 'name'
+
+        ),
+    'author' => array(
+            'type' => 'like',
+            'field' => 'author'
+        ),
+    'user_id' => array(
+            'type' => 'value'
+        ),
+    'enhanced_search' => array(
+            'type' => 'like',
+            'encode' => true,
+            'before' => false,
+            'after' => false,
+            'field' => array(
+                'ThisModel.name', 'OtherModel.name'
+            )
+        )
+    );
+
+ // Or conditions with like
+    public function orConditions($data = array()) {
+        $filter = $data['filter'];
+        $condition = array(
+            'OR' => array(
+                $this->alias . '.title LIKE' => '%' . $filter . '%',
+                $this->alias . '.body LIKE' => '%' . $filter . '%',
+            )
+        );
+        return $condition;
+    }
+
 
 public function beforeSave($options = array()){
 	foreach (array_keys($this->hasAndBelongsToMany) as $model){
