@@ -1,5 +1,4 @@
 <div class="users form">
-
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">

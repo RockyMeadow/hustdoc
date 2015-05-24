@@ -1,4 +1,6 @@
+<?php if ($document['Document']['filename']!='') :?>
 <div class="documents view">
+
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
@@ -39,6 +41,22 @@
 				<tr>
 		<th><?php echo __('Id'); ?></th>
 		<td>
+
+	<h2><?php echo __('Document'); ?></h2>
+	<?php
+	$iframe_start = '<iframe allowtransparency="true" style="background:#000;"cframeborder="0" scrolling="no" src="http://localhost/pdf.js/web/viewer.html?file=';
+	$iframe_end = '" height="545px" width="874px"></iframe>';
+	$src = 'http://localhost/hustdoc.vn/app/webroot/uploads'. '/'. $document['User']['id'].'/'.$document['Document']['id']. '/'. $document['Document']['filename']; 
+	if ($document['Document']['type'] != 'application/pdf') {
+		$src = $src . '.pdf';
+	}
+	echo $iframe_start.$src.$iframe_end;
+	?>
+	
+	<dl>
+		<dt><?php echo __('Id'); ?></dt>
+		<dd>
+
 			<?php echo h($document['Document']['id']); ?>
 			&nbsp;
 		</td>
@@ -69,19 +87,78 @@
 		<td>
 			<?php echo h($document['Document']['likes']); ?>
 			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Body'); ?></th>
-		<td>
-			<?php echo h($document['Document']['body']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Size'); ?></th>
-		<td>
+		</dd>
+		<dt><?php echo __('Size'); ?></dt>
+		<dd>
 			<?php echo h($document['Document']['size']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Author'); ?></dt>
+		<dd>
+			<?php echo h($document['Document']['author']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Views'); ?></dt>
+		<dd>
+			<?php echo h($document['Document']['views']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Downloads'); ?></dt>
+		<dd>
+			<?php echo h($document['Document']['downloads']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Created'); ?></dt>
+		<dd>
+			<?php echo h($document['Document']['created']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Modified'); ?></dt>
+		<dd>
+			<?php echo h($document['Document']['modified']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Visible'); ?></dt>
+		<dd>
+			<?php echo h($document['Document']['visible']); ?>
+			&nbsp;
+		</dd>
+	</dl>
+</div>
+<?php  endif; ?>
+<?php if ($document['Document']['filename']=='') :?>
+<div class="documents view">
+	<h2><?php echo __('Document'); ?></h2>	
+	<dl>
+		<dt><?php echo __('Id'); ?></dt>
+		<dd>
+			<?php echo h($document['Document']['id']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Name'); ?></dt>
+		<dd>
+			<?php echo h($document['Document']['name']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('User'); ?></dt>
+		<dd>
+			<?php echo $this->Html->link($document['User']['username'], array('controller' => 'users', 'action' => 'view', $document['User']['username'])); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Summary'); ?></dt>
+		<dd>
+			<?php echo h($document['Document']['summary']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Likes'); ?></dt>
+		<dd>
+			<?php echo h($document['Document']['likes']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Body'); ?></dt>
+		<dd>
+			<?php echo ($document['Document']['body']); ?>
+
 			&nbsp;
 		</td>
 </tr>
@@ -125,35 +202,34 @@
 		<td>
 			<?php echo h($document['Document']['visible']); ?>
 			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Filename'); ?></th>
-		<td>
-			<?php echo h($document['Document']['filename']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Type'); ?></th>
-		<td>
-			<?php echo h($document['Document']['type']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Hash'); ?></th>
-		<td>
-			<?php echo h($document['Document']['hash']); ?>
-			&nbsp;
-		</td>
-</tr>
-				</tbody>
-			</table>
 
-		</div><!-- end col md 9 -->
+		</dd>
+	</dl>
+</div>
+<?php  endif; ?>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<?php if ($document['Document']['filename']!='') :?>
+		<li><?php echo $this->Html->link(__('Downloads Document'), array('action' => 'download', $document['Document']['id'],$document['Document']['filename'])); ?> </li>
+	
+		<li><?php echo $this->Html->link(__('Edit Document'), array('action' => 'editupload', $document['Document']['id'])); ?> </li>
+		<?php endif ?>
+		<?php if ($document['Document']['filename']=='') :?>	
+		<li><?php echo $this->Html->link(__('Edit Document'), array('action' => 'edit', $document['Document']['id'])); ?> </li>
+		<?php endif ?>
+		<?php if ($document['Document']['filename']=='') :?>
+		<li><?php echo $this->Html->link(__('Convert to file docx'), array('action' => 'convert', $document['Document']['id'])); ?> </li>
+		<?php endif ?>
+		<li><?php echo $this->Form->postLink(__('Delete Document'), array('action' => 'delete', $document['Document']['id']), array(), __('Are you sure you want to delete # %s?', $document['Document']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('List Documents'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Document'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link("Back to the dashboard",   array('controller'=>'users','action'=>'admin_dashboard')); ?></li>
+		<li><?php echo $this->Html->link("Back to the main site",   array('controller'=>'topics','action'=>'admin_index') ); ?> </li>
+		<br/><br/><br/>
+		<li><?php  echo $this->Html->link( "Logout",   array('controller'=>'users','action'=>'admin_logout') );  ?></li>
+	</ul>
 
-	</div>
 </div>
 
 <div class="related row">

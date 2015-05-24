@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="documents form">
 
 	<div class="row">
@@ -86,3 +87,4 @@
 		</div><!-- end col md 12 -->
 	</div><!-- end row -->
 </div>
+

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="documents view">
 	<div class="row">
 		<div class="col-md-12">
@@ -223,6 +224,7 @@
 				</div> -->
 			</div><!-- end col md 12 -->
 		</div>
+
 		<div class="related row">
 			<div class="col-md-12">
 				<h3><?php echo __('Related Reports'); ?></h3>
@@ -303,3 +305,4 @@
 								</div>
 							</div><!-- end col md 12 -->
 						</div>
+

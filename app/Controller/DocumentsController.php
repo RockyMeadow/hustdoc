@@ -17,7 +17,7 @@ class DocumentsController extends AppController {
  * @var array
  */
 
-public $components = array('Paginator','Auth');
+public $components = array('Paginator','Auth','Search.Prg');
 
 
 public function isAuthorized($user = NULL) {
@@ -41,6 +41,18 @@ public function admin_download($id,$filename)
 	$path = WWW_ROOT .'uploads'.DS.$this->Auth->user('id'). DS . $id . DS. $filename;
 	$this->autoRender = false;
 	$this->response->file($path);
+	// $document=$this->Document->find('first',array('conditions' => array('Document.' . $this->Document->primaryKey => $id)));
+	// $this->Document->save(array(
+ //            'Document' => array(
+ //                'id' => $id,
+ //                'downloads' => ($document['Document']['downloads'] + 1)
+ //            )
+ //        ));
+	 $this->Document->updateAll(
+            array('Document.downloads' => 'Document.downloads+1'),
+            array('Document.id' => $id)
+        );
+
 	return $this->response;
 }
 
@@ -77,6 +89,12 @@ public function view($id = null) {
 	}
 	$options = array('conditions' => array('Document.' . $this->Document->primaryKey => $id));
 	$this->set('document', $this->Document->find('first', $options));
+	 $this->Document->updateAll(
+            array('Document.views' => 'Document.views+1'),
+            array('Document.id' => $id)
+        );
+
+	return $this->response;
 }
 
 public function admin_view($id = null) {
@@ -86,6 +104,10 @@ public function admin_view($id = null) {
 
 	$options = array('conditions' => array('Document.' . $this->Document->primaryKey => $id));
 	$this->set('document', $this->Document->find('first', $options));
+	 $this->Document->updateAll(
+            array('Document.views' => 'Document.views+1'),
+            array('Document.id' => $id)
+        );
 }
 
 
@@ -99,20 +121,24 @@ public function admin_view($id = null) {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			$this->Document->create();
 			$this->Document->validator()->remove('Topic');
-			//Upload proceeding
-			$folder = new Folder();
-			if ($folder->create(WWW_ROOT. DS . 'uploads'.DS. $this->Auth->user('id')))
-			{
-				$filepath = WWW_ROOT. DS . 'uploads'.DS.$this->Auth->user('id'). DS.$this->data['Document']['submittedfile']['name'];
-				move_uploaded_file($this->data['Document']['submittedfile']['tmp_name'],$filepath);
-			}
-			$this->request->data['Document']['filename'] = $this->data['Document']['submittedfile']['name'];
-			// *****************
+			$data = $this->data['Document']['body'];
 			if ($this->Document->save($this->request->data)) {
-				$this->Session->setFlash(__('The document has been saved.', 'flash-success'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The document could not be saved. Please, try again.', 'flash-danger'));
+				$this->Session->setFlash(__('The document has been saved.','flash-success'));
+				
+				$folder = new Folder();
+				if ($folder->create(WWW_ROOT. DS . 'uploads'.DS. $this->Auth->user('id'). DS. $this->Document->id))
+				{
+					$filepath = WWW_ROOT. DS . 'uploads'.DS.$this->Auth->user('id'). DS. $this->Document->id .DS .$this->data['Document']['name'].".html";
+					
+				}
+    		
+    			$file = fopen($filepath, "w"); 
+   			    fwrite($file, $data);
+  				fclose($file);
+  				return $this->redirect(array('action' => 'view',$this->Document->id));
+					
+					} else {
+				$this->Session->setFlash(__('The document could not be saved. Please, try again.'));
 			}
 		}
 		$users = $this->Document->User->find('list');
@@ -120,10 +146,11 @@ public function admin_view($id = null) {
 		$this->set(compact('users', 'topics'));
 		
 		} else{
-			$this->Session->setFlash(__('You do not have permission to do this', 'flash-danger'));
+			$this->Session->setFlash(__('You do not have permission to do this','flash-danger'));
 			return $this->redirect('http://localhost/hustdoc.vn/login');
 			}
 	}
+	
 
 	public function upload() {
 	if (AuthComponent::user()){
@@ -137,7 +164,7 @@ public function admin_view($id = null) {
 				$filepath = WWW_ROOT. DS . 'uploads'.DS.$this->Auth->user('id'). DS.$this->data['Document']['submittedfile']['name'];
 				move_uploaded_file($this->data['Document']['submittedfile']['tmp_name'],$filepath);
 			}
-			$this->request->data['Document']['name'] = $this->data['Document']['submittedfile']['name'];
+			$this->request->data['Document']['filename'] = $this->data['Document']['submittedfile']['name'];
 			$this->request->data['Document']['type'] = $this->data['Document']['submittedfile']['type'];
 			$this->request->data['Document']['size'] = $this->data['Document']['submittedfile']['size'];
 			// *****************
@@ -145,14 +172,16 @@ public function admin_view($id = null) {
 				$this->Session->setFlash(__('The document has been saved.'), 'flash-success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The document could not be saved. Please, try again.'), 'flash-success');
+				$this->Session->setFlash(__('The document could not be saved. Please, try again.'), 'flash-danger');
 			}
 		}
 		$users = $this->Document->User->find('list');
 		$topics = $this->Document->Topic->find('list');
 		$this->set(compact('users', 'topics'));
 		} else{
+
 			$this->Session->setFlash(__('You do not have permission to do this'), 'flash-danger');
+
 			return $this->redirect('http://localhost/hustdoc.vn/login');
 			}
 	}
@@ -167,8 +196,9 @@ public function admin_add() {
 			$this->Document->validator()->remove('Topic');
 			$data = $this->data['Document']['body'];
 			if ($this->Document->save($this->request->data)) {
+
 				$this->Session->setFlash(__('The document has been saved.'), 'flash-success');
-				
+
 				$folder = new Folder();
 				if ($folder->create(WWW_ROOT. DS . 'uploads'.DS. $this->Auth->user('id'). DS. $this->Document->id))
 				{
@@ -182,7 +212,9 @@ public function admin_add() {
   				return $this->redirect(array('action' => 'admin_view',$this->Document->id));
 					
 					} else {
+
 				$this->Session->setFlash(__('The document could not be saved. Please, try again.'), 'flash-danger');
+
 			}
 		}
 		$users = $this->Document->User->find('list');
@@ -207,8 +239,8 @@ public function admin_upload() {
 			}
 			//Converting to pdf in case of Doc file
 			if ( $this->data['Document']['submittedfile']['type'] != 'application/pdf') {
-				$output_dir = 'C:/xampp/htdocs/hustdoc.vn/app/webroot/uploads/'. $this->Auth->user('id'). '/' .$this->Document->id;
-				$doc_file = 'C:/xampp/htdocs/hustdoc.vn/app/webroot/uploads/'. $this->Auth->user('id').'/'.$this->Document->id.'/'.$this->data['Document']['submittedfile']['name'];
+				$output_dir = 'C:/wamp/www/hustdoc.vn/app/webroot/uploads/'. $this->Auth->user('id'). '/' .$this->Document->id;
+				$doc_file = 'C:/wamp/www/hustdoc.vn/app/webroot/uploads/'. $this->Auth->user('id').'/'.$this->Document->id.'/'.$this->data['Document']['submittedfile']['name'];
 				$pdf_file = $this->data['Document']['submittedfile']['name'].'.pdf';
 				$output_file = $output_dir.'/'. $pdf_file;
 				$doc_file = "file:///" . $doc_file;
@@ -234,17 +266,18 @@ public function admin_upload() {
 			throw new NotFoundException(__('Invalid document'));
 		}
 		$document = $this->Document->find('first', array('conditions' => array('Document.id' => $id)));
-		require_once 'C:\xampp\htdocs\hustdoc.vn\app\lib\htmltodocx\phpword\PHPWord.php';
-		require_once 'C:\xampp\htdocs\hustdoc.vn\app\lib\htmltodocx\simplehtmldom\simple_html_dom.php';
-		require_once 'C:\xampp\htdocs\hustdoc.vn\app\lib\htmltodocx\htmltodocx_converter\h2d_htmlconverter.php';
-		require_once 'C:\xampp\htdocs\hustdoc.vn\app\lib\htmltodocx\example_files\styles.inc';
+		require_once 'C:\wamp\www\hustdoc.vn\app\lib\htmltodocx\phpword\PHPWord.php';
+		require_once 'C:\wamp\www\hustdoc.vn\app\lib\htmltodocx\simplehtmldom\simple_html_dom.php';
+		require_once 'C:\wamp\www\hustdoc.vn\app\lib\htmltodocx\htmltodocx_converter\h2d_htmlconverter.php';
+		require_once 'C:\wamp\www\hustdoc.vn\app\lib\htmltodocx\example_files\styles.inc';
 
 		// Functions to support this example.
-		require_once 'C:\xampp\htdocs\hustdoc.vn\app\lib\htmltodocx\documentation\support_functions.inc';
+		require_once 'C:\wamp\www\hustdoc.vn\app\lib\htmltodocx\documentation\support_functions.inc';
 
 		// HTML fragment we want to parse:
 
-		$html = file_get_contents('C:/xampp/htdocs/hustdoc.vn/app/webroot/uploads/'.$document['Document']['user_id']. '/'. $document['Document']['id'].'/'.$document['Document']['name'].'.html');
+		$html = file_get_contents('C:/wamp/www/hustdoc.vn/app/webroot/uploads/'.$document['Document']['user_id']. '/'. $document['Document']['id'].'/'.$document['Document']['name'].'.html');
+
 		// $html = file_get_contents('test/table.html');
 		 
 		// New Word Document:
@@ -347,6 +380,26 @@ public function edit($id = null) {
 	$this->set(compact('users', 'topics'));
 }
 
+public function editupload($id = null) {
+	if (!$this->Document->exists($id)) {
+		throw new NotFoundException(__('Invalid document'));
+	}
+	if ($this->request->is(array('post', 'put'))) {
+		if ($this->Document->save($this->request->data)) {
+			$this->Session->setFlash(__('The document has been saved.'));
+			return $this->redirect(array('action' => 'index'));
+		} else {
+			$this->Session->setFlash(__('The document could not be saved. Please, try again.'));
+		}
+	} else {
+		$options = array('conditions' => array('Document.' . $this->Document->primaryKey => $id));
+		$this->request->data = $this->Document->find('first', $options);
+	}
+	$users = $this->Document->User->find('list');
+	$topics = $this->Document->Topic->find('list');
+	$this->set(compact('users', 'topics'));
+}
+
 
 public function admin_edit($id = null) {
 	if (!$this->Document->exists($id)) {
@@ -358,6 +411,26 @@ public function admin_edit($id = null) {
 			return $this->redirect(array('action' => 'index'));
 		} else {
 			$this->Session->setFlash(__('The document could not be saved. Please, try again.'), 'flash-danger');
+		}
+	} else {
+		$options = array('conditions' => array('Document.' . $this->Document->primaryKey => $id));
+		$this->request->data = $this->Document->find('first', $options);
+	}
+	$users = $this->Document->User->find('list');
+	$topics = $this->Document->Topic->find('list');
+	$this->set(compact('users', 'topics'));
+}
+
+public function admin_editupload($id = null) {
+	if (!$this->Document->exists($id)) {
+		throw new NotFoundException(__('Invalid document'));
+	}
+	if ($this->request->is(array('post', 'put'))) {
+		if ($this->Document->save($this->request->data)) {
+			$this->Session->setFlash(__('The document has been saved.'));
+			return $this->redirect(array('action' => 'index'));
+		} else {
+			$this->Session->setFlash(__('The document could not be saved. Please, try again.'));
 		}
 	} else {
 		$options = array('conditions' => array('Document.' . $this->Document->primaryKey => $id));
@@ -386,8 +459,10 @@ public function admin_delete($id = null) {
 	$folder->delete();
 		//Deleted
 	if ($this->Document->delete()) {
+
 		$this->Session->setFlash(__('The document has been deleted.'), 'flash-success');
 		print_r($path);
+
 	} else {
 		$this->Session->setFlash(__('The document could not be deleted. Please, try again.'), 'flash-danger');
 	}
@@ -412,7 +487,9 @@ public function admin_documentsdownload($id = null){
 			// 
 		return $this->response;
 		}else{
+
 			$this->Session->setFlash(__('You do not have permission to do this'), 'flash-danger');
+
 			return $this->redirect(array('controller'=>'users','action' => 'admin_dashboard'));			
 		}
 	}
@@ -443,6 +520,17 @@ public function delete($id = null) {
 	}
 	return $this->redirect(array('action' => 'index'));
 }
+public function find() {
+        $this->Prg->commonProcess();
+        $this->Paginator->settings['conditions'] = $this->Document->parseCriteria($this->Prg->parsedParams());
+        $this->set('documents', $this->Paginator->paginate());
+    }
+
+public function admin_find() {
+        $this->Prg->commonProcess();
+        $this->Paginator->settings['conditions'] = $this->Document->parseCriteria($this->Prg->parsedParams());
+        $this->set('documents', $this->Paginator->paginate());
+    }
 
 
 function sanitize($string, $force_lowercase = true, $anal = false) {

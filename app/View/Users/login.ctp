@@ -7,6 +7,7 @@
         <?php echo $this->Form->input('username');
         echo $this->Form->input('password');
     ?>
+<<<<<<< HEAD
     </fieldset> -->
     <div class="">
     </div>
@@ -26,3 +27,4 @@
 	</div>
 </form>
 </div>
+

@@ -65,6 +65,7 @@
 		<td>
 			<?php echo h($topic['Topic']['modified']); ?>
 			&nbsp;
+<<<<<<< HEAD
 		</td>
 </tr>
 				</tbody>
@@ -73,6 +74,21 @@
 		</div><!-- end col md 9 -->
 
 	</div>
+=======
+		</dd>
+	</dl>
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('Download All Documents'), array('controller' => 'documents', 'action' => 'documentsdownload', $topic['Topic']['id'])); ?> </li> 
+		<li><?php echo $this->Html->link(__('Edit Topic'), array('action' => 'edit', $topic['Topic']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete Topic'), array('action' => 'delete', $topic['Topic']['id']), array(), __('Are you sure you want to delete # %s?', $topic['Topic']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('List Topics'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Topic'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Document'), array('controller' => 'documents', 'action' => 'add')); ?> </li>
+	</ul>
+>>>>>>> 47390866753fa68f19052ea29ed8ce1f8d1503c1
 </div>
 
 <div class="related row">
